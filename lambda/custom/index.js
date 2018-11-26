@@ -5,7 +5,7 @@ const Alexa = require('ask-sdk-core')
 const { DynamoDB } = require('aws-sdk')
 const Main = require('mainscreen.json')
 
-const docClient = DynamoDB()
+const docClient = new DynamoDB.DocumentClient({ apiVersion: '2012-08-10' })
 
 function addChore(child, chore) {
   return docClient.put({
@@ -76,8 +76,17 @@ const AddChoreIntentHandler = {
     const { requestEnvelope, responseBuilder } = handlerInput
     const { intent } = requestEnvelope.request
 
+    const { slots } = intent
+    addChore(slots.FirstName.value, slots.Chore.value).then((err, data) => {
+      console.log('kaleb', JSON.stringify(t))
+    })
+
     return responseBuilder
-      .speak(`Adding ${intent.slots.Chore.value} for ${intent.slots.FirstName.value} `)
+      .speak(
+        `Adding ${intent.slots.Chore.value} for ${
+          intent.slots.FirstName.value
+        } `
+      )
       .getResponse()
   }
 }

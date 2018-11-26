@@ -10,7 +10,7 @@
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "02b2a8ab36eb1f8d51602858affb0747"
+            "eTag": "9ba0e4371bf1bd8af1d8acfc337e6af7"
           }
         },
         "lambda": [
@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-aws2018-hackathon-default",
             "handler": "index.handler",
-            "revisionId": "3854481f-df34-4202-9a70-ff9c15973901",
+            "revisionId": "b7db1e91-a43f-497a-bdf3-dd79f0fab630",
             "runtime": "nodejs8.10"
           }
         ]
