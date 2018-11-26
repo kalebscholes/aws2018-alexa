@@ -7,15 +7,18 @@ const Main = require('mainscreen.json')
 
 const docClient = new DynamoDB.DocumentClient({ apiVersion: '2012-08-10' })
 
-function addChore(child, chore) {
-  return docClient.put({
-    TableName: 'member',
-    Item: {
-      year: 2018,
-      id: child,
-      chore: chore
-    }
-  })
+function addChore(child, chore, callback) {
+  docClient.put(
+    {
+      TableName: 'member',
+      Item: {
+        year: 2018,
+        id: child,
+        chore: chore
+      }
+    },
+    callback
+  )
 }
 
 const LaunchRequestHandler = {
@@ -85,8 +88,9 @@ const AddChoreIntentHandler = {
     const { intent } = requestEnvelope.request
 
     const { slots } = intent
-    addChore(slots.FirstName.value, slots.Chore.value).then((err, data) => {
-      console.log('kaleb', JSON.stringify(t))
+    addChore(slots.FirstName.value, slots.Chore.value, function(err, data) {
+      console.log('error', err)
+      console.log('kaleb', JSON.stringify(data))
     })
 
     return responseBuilder
