@@ -4,6 +4,7 @@
 const Alexa = require('ask-sdk-core')
 const { DynamoDB } = require('aws-sdk')
 const Main = require('mainscreen.json')
+const ChoreList = require('chore-list.json')
 
 const docClient = new DynamoDB.DocumentClient({ apiVersion: '2012-08-10' })
 
@@ -69,6 +70,42 @@ const HelloWorldIntentHandler = {
     return handlerInput.responseBuilder
       .speak(speechText)
       .withSimpleCard('Hello World', speechText)
+      .getResponse()
+  }
+}
+
+const ViewChoreIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'ViewChoreIntent'
+    )
+  },
+  handle(handlerInput) {
+    const { requestEnvelope, responseBuilder } = handlerInput
+    const { intent } = requestEnvelope.request
+
+    const { slots } = intent
+    viewChore(slots.FirstName.value).then((err, data) => {
+      console.log('kaleb', JSON.stringify(t))
+    })
+
+    return responseBuilder
+      .speak(`Viewing Chore List for ${intent.slots.FirstName.value} `)
+      .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        version: '1.0',
+        document: ChoreList,
+        datasources: {
+          davidChores: {
+            type: 'object',
+            properties: {
+              firstChore: 'Fold Laundry',
+              secondChore: 'Clean Room'
+            }
+          }
+        }
+      })
       .getResponse()
   }
 }

@@ -39,7 +39,8 @@
             "text": "${datasource.choreData.properties.subtitle}",
             "color": "#ffffff",
             "width": "70vw",
-            "paddingTop": "20px",
+            "bottom": "20px",
+            "position": "absolute",
             "fontSize": "4vw",
             "textAlign": "center"
           }
