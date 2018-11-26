@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-aws2018-hackathon-default",
             "handler": "index.handler",
-            "revisionId": "b7db1e91-a43f-497a-bdf3-dd79f0fab630",
+            "revisionId": "51608253-e427-46f6-9542-9f8dc8890db2",
             "runtime": "nodejs8.10"
           }
         ]

@@ -25,20 +25,22 @@ const LaunchRequestHandler = {
   handle(handlerInput) {
     const speechText = 'Hello Hackathon'
 
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      // .reprompt(speechText)
-      .withSimpleCard('Hello World', speechText)
-      .addDirective({
-        type: 'Alexa.Presentation.APL.RenderDocument',
-        version: '1.0',
-        document: Main,
-        datasources: {
-          choreData: {
-            type: 'object',
-            properties: {
-              title: 'Welcome to Family Manager!',
-              subtitle: 'What would you like to do?'
+    return (
+      handlerInput.responseBuilder
+        .speak(speechText)
+        // .reprompt(speechText)
+        .withSimpleCard('Hello World', speechText)
+        .addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          version: '1.0',
+          document: Main,
+          datasources: {
+            choreData: {
+              type: 'object',
+              properties: {
+                title: 'Welcome to Family Manager!',
+                subtitle: 'What would you like to do?'
+              }
             }
           }
         })
