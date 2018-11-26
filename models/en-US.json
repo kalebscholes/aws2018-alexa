@@ -1,0 +1,36 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "hello world",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "samples": ["hello", "ciao"]
+        },
+        {
+          "name": "AnswerIntent",
+          "samples": ["how are you {FirstName}"],
+          "slots": [
+            {
+              "name": "FirstName",
+              "type": "AMAZON.US_FIRST_NAME",
+              "samples": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
