@@ -20,6 +20,22 @@
           "samples": ["hello", "ciao"]
         },
         {
+          "name": "AddChoreIntnet",
+          "slots": [
+              {
+                  "name": "Chore",
+                  "type": "AMAZON.SearchQuery"
+              },
+              {
+                  "name": "FirstName",
+                  "type": "AMAZON.US_FIRST_NAME"
+              }
+          ],
+          "samples": [
+              "add chore {Chore} for {FirstName}"
+          ]
+      },
+      {
           "name": "AnswerIntent",
           "samples": ["how are you {FirstName}"],
           "slots": [

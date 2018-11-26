@@ -52,6 +52,25 @@ const AnswerIntentHandler = {
   }
 }
 
+const AddChoreIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'AddChoreIntnet'
+    )
+  },
+  handle(handlerInput) {
+    const { requestEnvelope, responseBuilder } = handlerInput
+    const { intent } = requestEnvelope.request
+    const name = intent.slots.FirstName.value;
+    const chore = intent.slots.Chore.value;
+
+    return responseBuilder
+      .speak(`Adding ${chore} for ${name}`)
+      .getResponse()
+  }
+}
+
 const HelpIntentHandler = {
   canHandle(handlerInput) {
     return (
@@ -125,6 +144,7 @@ exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
     AnswerIntentHandler,
+    AddChoreIntentHandler,
     HelloWorldIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
