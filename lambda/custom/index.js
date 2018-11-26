@@ -12,8 +12,8 @@ const LaunchRequestHandler = {
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .reprompt(speechText)
-      .withSimpleCard('Hello World', speechText)
+      //.reprompt(speechText)
+      //.withSimpleCard('Hello World', speechText)
       .getResponse()
   }
 }
@@ -56,7 +56,7 @@ const AddChoreIntentHandler = {
   canHandle(handlerInput) {
     return (
       handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      handlerInput.requestEnvelope.request.intent.name === 'AddChoreIntnet'
+      handlerInput.requestEnvelope.request.intent.name === 'AddChoreIntent'
     )
   },
   handle(handlerInput) {
