@@ -4,17 +4,17 @@
 const Alexa = require('ask-sdk-core')
 const { DynamoDB } = require('aws-sdk')
 
-const docClient = DynamoDB.DocumentClient()
+const docClient = DynamoDB().DocumentClient()
 
-async addChore(child, chore){
- let result = await docClient.put({
-   TableName: "member",
-   Item: {
-     "year" : 2018,
-     "id" : child,
-      "chore" : chore
-   }
- })
+function addChore(child, chore) {
+  return docClient.put({
+    TableName: 'member',
+    Item: {
+      year: 2018,
+      id: child,
+      chore: chore
+    }
+  })
 }
 
 const LaunchRequestHandler = {
@@ -56,13 +56,19 @@ const AnswerIntentHandler = {
       handlerInput.requestEnvelope.request.intent.name === 'AnswerIntent'
     )
   },
-  handle(handlerInput) {
+  async handle(handlerInput) {
     const { requestEnvelope, responseBuilder } = handlerInput
     const { intent } = requestEnvelope.request
 
-    return responseBuilder
-      .speak(`What up ${intent.slots.FirstName.value}`)
-      .getResponse()
+    let response = 'it worked'
+    try {
+      response = `What up ${intent.slots.FirstName.value}`
+      await addChore('kaleb', 'vaccuum rugs')
+    } catch (e) {
+      response = e.message
+    }
+
+    return responseBuilder.speak(response).getResponse()
   }
 }
 

@@ -4,11 +4,7 @@
       "locales": {
         "en-US": {
           "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
+          "examplePhrases": ["Alexa open hello world", "hello", "help"],
           "name": "aws2018-hackathon",
           "description": "Sample Full Description"
         }
@@ -23,7 +19,12 @@
         "endpoint": {
           "sourceDir": "lambda/custom",
           "uri": "ask-custom-aws2018-hackathon-default"
-        }
+        },
+        "interfaces": [
+          {
+            "type": "ALEXA_PRESENTATION_APL"
+          }
+        ]
       }
     },
     "manifestVersion": "1.0"

@@ -6,11 +6,11 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "28370e5252144d38af3782cfdd396d3d"
+          "eTag": "b9807f3e9abdcc54e1833a66eb653a1b"
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "9a3d907c0d945e24f37962be7affde0e"
+            "eTag": "02b2a8ab36eb1f8d51602858affb0747"
           }
         },
         "lambda": [
@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-aws2018-hackathon-default",
             "handler": "index.handler",
-            "revisionId": "e7f81fe0-1470-491e-92dc-09f820e6e61e",
+            "revisionId": "2ff6f3f3-34b2-49c6-ae07-54aa9afc1f82",
             "runtime": "nodejs8.10"
           }
         ]
