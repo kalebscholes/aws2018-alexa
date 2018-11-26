@@ -49,6 +49,23 @@ const HelloWorldIntentHandler = {
   }
 }
 
+const AddChoreIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'AddChoreIntent'
+    )
+  },
+  handle(handlerInput) {
+    const { requestEnvelope, responseBuilder } = handlerInput
+    const { intent } = requestEnvelope.request
+
+    return responseBuilder
+      .speak(`Adding ${intent.slots.Chore.value} for ${intent.slots.FirstName.value} `)
+      .getResponse()
+  }
+}
+
 const AnswerIntentHandler = {
   canHandle(handlerInput) {
     return (
@@ -138,6 +155,7 @@ const skillBuilder = Alexa.SkillBuilders.custom()
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
+    AddChoreIntentHandler,
     AnswerIntentHandler,
     HelloWorldIntentHandler,
     HelpIntentHandler,
