@@ -235,6 +235,7 @@ const skillBuilder = Alexa.SkillBuilders.custom()
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
+    ViewChoreIntentHandler,
     AddChoreIntentHandler,
     AnswerIntentHandler,
     HelloWorldIntentHandler,
