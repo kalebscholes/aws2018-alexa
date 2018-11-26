@@ -40,7 +40,7 @@ const LaunchRequestHandler = {
               type: 'object',
               properties: {
                 title: 'Welcome to Family Manager!',
-                subtitle: 'Try: "Alexa, view David\'s Chore List"'
+                subtitle: 'Try: "Alexa, view chore list for David"'
               }
             },
             davidChores: {
