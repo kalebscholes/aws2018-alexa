@@ -3,6 +3,7 @@
 
 const Alexa = require('ask-sdk-core')
 const { DynamoDB } = require('aws-sdk')
+const Main = require('mainscreen.json')
 
 const docClient = DynamoDB().DocumentClient()
 
@@ -24,11 +25,26 @@ const LaunchRequestHandler = {
   handle(handlerInput) {
     const speechText = 'Hello Hackathon'
 
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .reprompt(speechText)
-      .withSimpleCard('Hello World', speechText)
-      .getResponse()
+    return (
+      handlerInput.responseBuilder
+        .speak(speechText)
+        .reprompt(speechText)
+        // .withSimpleCard('Hello World', speechText)
+        .addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          version: '1.0',
+          document: Main,
+          datasources: {
+            choreData: {
+              type: 'object',
+              properties: {
+                name: 'David Welch'
+              }
+            }
+          }
+        })
+        .getResponse()
+    )
   }
 }
 
