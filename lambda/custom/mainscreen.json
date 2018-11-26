@@ -28,10 +28,19 @@
           },
           {
             "type": "Text",
-            "text": "${datasource.choreData.properties.name}",
+            "text": "${datasource.choreData.properties.title}",
             "color": "#ffffff",
             "width": "70vw",
             "fontSize": "7vw",
+            "textAlign": "center"
+          },
+          {
+            "type": "Text",
+            "text": "${datasource.choreData.properties.subtitle}",
+            "color": "#ffffff",
+            "width": "70vw",
+            "paddingTop": "20px",
+            "fontSize": "4vw",
             "textAlign": "center"
           }
         ]
