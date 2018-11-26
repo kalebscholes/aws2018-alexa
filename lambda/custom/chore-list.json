@@ -20,23 +20,25 @@
         "items": [
           {
             "type": "Image",
-            "source": "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj-oLu6lfPeAhWE3VMKHU46DM4QjRx6BAgBEAU&url=https%3A%2F%2Faifs.gov.au%2Fcfca%2Fpublications%2Ffamily-structure-and-child-maltreatment-do-some-family-types-place-children&psig=AOvVaw327gSQeNPhPjWMZF0UdW2p&ust=1543359361695313",
+            "source": "http://www.davidwelch.com/xSites/Agents/orlandohomes/Content/UploadedFiles/headshot-800.jpg",
             "position": "absolute",
-            "width": "100vw",
-            "height": "100vh",
-            "scale": "best-fill"
+            "width": "200px",
+            "height": "auto",
+            "top": "10",
+            "right": 10
           },
           {
             "type": "Text",
-            "text": "${datasource.choreData.properties.title}",
+            "text": "${datasource.davidChores.properties.firstChore}",
             "color": "#ffffff",
             "width": "70vw",
-            "fontSize": "7vw",
+            "paddingTop": "20px",
+            "fontSize": "4vw",
             "textAlign": "center"
           },
           {
             "type": "Text",
-            "text": "${datasource.choreData.properties.subtitle}",
+            "text": "${datasource.davidChores.properties.secondChore}",
             "color": "#ffffff",
             "width": "70vw",
             "paddingTop": "20px",
