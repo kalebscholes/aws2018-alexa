@@ -23,7 +23,8 @@ const LaunchRequestHandler = {
           choreData: {
             type: 'object',
             properties: {
-              name: 'David Welch'
+              title: 'Welcome to Family Manager!',
+              subtitle: 'What would you like to do?'
             }
           }
         }
