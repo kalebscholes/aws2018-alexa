@@ -2,6 +2,7 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk-core')
+const Main = require('mainscreen.json')
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -14,6 +15,19 @@ const LaunchRequestHandler = {
       .speak(speechText)
       .reprompt(speechText)
       .withSimpleCard('Hello World', speechText)
+      .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        version: '1.0',
+        document: Main,
+        datasources: {
+          choreData: {
+            type: 'object',
+            properties: {
+              name: 'David Welch'
+            }
+          }
+        }
+      })
       .getResponse()
   }
 }
