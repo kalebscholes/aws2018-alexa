@@ -2,6 +2,20 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk-core')
+const { DynamoDB } = require('aws-sdk')
+
+const docClient = DynamoDB.DocumentClient()
+
+async addChore(child, chore){
+ let result = await docClient.put({
+   TableName: "member",
+   Item: {
+     "year" : 2018,
+     "id" : child,
+      "chore" : chore
+   }
+ })
+}
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
