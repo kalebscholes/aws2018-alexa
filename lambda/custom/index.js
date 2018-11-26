@@ -5,7 +5,7 @@ const Alexa = require('ask-sdk-core')
 const { DynamoDB } = require('aws-sdk')
 const Main = require('mainscreen.json')
 
-const docClient = DynamoDB().DocumentClient()
+const docClient = DynamoDB()
 
 function addChore(child, chore) {
   return docClient.put({
