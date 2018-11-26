@@ -1,36 +1,74 @@
 {
   "interactionModel": {
-    "languageModel": {
-      "invocationName": "family manager",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "HelloWorldIntent",
-          "samples": ["hello", "ciao"]
-        },
-        {
-          "name": "AnswerIntent",
-          "samples": ["how are you {FirstName}"],
-          "slots": [
-            {
-              "name": "FirstName",
-              "type": "AMAZON.US_FIRST_NAME",
-              "samples": []
-            }
+      "languageModel": {
+          "invocationName": "family manager",
+          "intents": [
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "HelloWorldIntent",
+                  "slots": [],
+                  "samples": [
+                      "hello",
+                      "ciao"
+                  ]
+              },
+              {
+                  "name": "AnswerIntent",
+                  "slots": [
+                      {
+                          "name": "FirstName",
+                          "type": "AMAZON.US_FIRST_NAME"
+                      }
+                  ],
+                  "samples": [
+                      "how are you {FirstName}"
+                  ]
+              },
+              {
+                  "name": "AddChoreIntent",
+                  "slots": [
+                      {
+                          "name": "Chore",
+                          "type": "LIST_OF_CHORES"
+                      },
+                      {
+                          "name": "FirstName",
+                          "type": "AMAZON.US_FIRST_NAME"
+                      }
+                  ],
+                  "samples": [
+                      "Add {Chore} for {FirstName}"
+                  ]
+              }
+          ],
+          "types": [
+              {
+                  "name": "LIST_OF_CHORES",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "laundry"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "vacuum"
+                          }
+                      }
+                  ]
+              }
           ]
-        }
-      ]
-    }
+      }
   }
 }
